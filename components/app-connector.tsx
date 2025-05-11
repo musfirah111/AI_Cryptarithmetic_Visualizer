@@ -1,10 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { DomainUpdater } from "@/components/domain-updater"
 import { ProgressDisplay } from "@/components/progress-display"
-import { DecisionTree } from "@/components/decision-tree"
-import { SolutionView } from "@/components/solution-view"
 import { LoadingDialog } from "@/components/loading-dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -291,17 +288,17 @@ export default function AppConnector() {
             {isFinished ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-6">
-                  <DomainUpdater domains={domains} previousDomains={previousDomains} currentLetter={currentLetter} />
+                  {/* <DomainUpdater domains={domains} previousDomains={previousDomains} currentLetter={currentLetter} /> */}
                   <ProgressDisplay steps={progressSteps} currentStep={currentStep} />
                 </div>
-                <div className="space-y-6">
+                {/* <div className="space-y-6">
                   <DecisionTree assignments={assignments} />
                   <SolutionView
                     solution={solution}
                     isVisible={showSolution}
                     onToggleVisibility={() => setShowSolution(!showSolution)}
                   />
-                </div>
+                </div> */}
 
                 <div className="md:col-span-2">
                   <div className="flex justify-center space-x-4 mt-4">

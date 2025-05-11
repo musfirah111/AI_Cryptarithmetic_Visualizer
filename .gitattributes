@@ -23,3 +23,4 @@
 *.zip binary
 *.exe binary
 *.dll binary
+*.log binary

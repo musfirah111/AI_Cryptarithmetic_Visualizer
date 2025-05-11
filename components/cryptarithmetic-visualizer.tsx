@@ -159,7 +159,7 @@ export default function CryptarithmeticVisualizer() {
     // Initialize carry domains (0 and 1)
     // Determine the maximum number of carry variables needed
     const maxLength = Math.max(word1.length, word2.length, word3.length)
-    for (let i = 1; i <= maxLength; i++) {
+    for (let i = 1; i < maxLength; i++) {
       domains[`Carry${i}`] = [0, 1]
     }
 
@@ -623,12 +623,12 @@ export default function CryptarithmeticVisualizer() {
                     variant="outline"
                     onClick={() => {
                       setWord1("CROSS")
-                      setWord2("ROAD")
+                      setWord2("ROADS")
                       setWord3("DANGER")
                     }}
                     className="bg-slate-800 border-slate-600 hover:bg-slate-700 text-white h-auto py-3 justify-start w-full"
                   >
-                    <span className="font-mono font-bold">CROSS + ROAD = DANGER</span>
+                    <span className="font-mono font-bold">CROSS + ROADS = DANGER</span>
                   </Button>
 
                   <Button

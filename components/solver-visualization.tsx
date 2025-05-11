@@ -296,7 +296,7 @@ export function SolverVisualization({
 
           {/* Controls */}
           <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-            <div className="flex flex-wrap gap-2 justify-between mb-4">
+            <div className="flex flex-nowrap gap-2 justify-between mb-4 items-center">
               <Button
                 onClick={resetVisualization}
                 className="w-28 h-11 text-sm bg-slate-700 border-slate-600 hover:bg-slate-600 text-white active:bg-gradient-to-r active:from-purple-600 active:to-pink-600"
@@ -416,6 +416,7 @@ export function SolverVisualization({
                 {/* Get all keys using the formatDomains logic */}
                 {(() => {
                   const keys = Object.keys({ ...currentDomains, ...(solution || {}) })
+                   
                     .filter((key) => key.length === 1 || key.startsWith("Carry"))
                     .sort((a, b) => {
                       const aIsCarry = a.startsWith("Carry")
@@ -423,7 +424,9 @@ export function SolverVisualization({
                       if (aIsCarry === bIsCarry) return a.localeCompare(b)
                       return aIsCarry ? 1 : -1
                     })
+                    
                     .filter(key => !key.startsWith("Carry"));
+                    
 
                   const firstHalf = keys.slice(0, Math.ceil(keys.length / 2));
                   const secondHalf = keys.slice(Math.ceil(keys.length / 2));
@@ -517,14 +520,14 @@ export function SolverVisualization({
             <div>
               <div className="text-lg font-bold text-white mb-2">Final Decision Tree:</div>
               <div className="flex flex-col items-center space-y-4 py-4">
-                {currentAssignments.map((assignment, index) => (
-                  <div key={index} className="flex flex-col items-center">
-                    <div className="w-40 h-12 bg-sky-200 rounded-md flex items-center justify-center text-slate-800 font-bold">
-                      {assignment.letter.toUpperCase()} = {assignment.value}
-                    </div>
-                    {index < currentAssignments.length - 1 && <div className="h-6 w-0.5 bg-gray-400"></div>}
-                  </div>
-                ))}
+                    {currentAssignments.map((assignment, index) => (
+                      <div key={index} className="flex flex-col items-center">
+                        <div className="w-40 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-md flex items-center justify-center text-white font-bold">
+                          {assignment.letter.toUpperCase()} = {assignment.value}
+                        </div>
+                        {index < currentAssignments.length - 1 && <div className="h-6 w-0.5 bg-gray-400"></div>}
+                      </div>
+                    ))}
               </div>
             </div>
           </div>

@@ -38,7 +38,7 @@ class CryptarithmeticSolver:
                     self.domains[letter].remove(1)
 
         # Carry variables and their domain.
-        self.carryVariables = [f'Carry{i}' for i in range(len(self.word3) + 1)]
+        self.carryVariables = [f'Carry{i + 1}' for i in range(len(self.word3) - 1)]
         for carry in self.carryVariables:
             self.domains[carry] = [0, 1]  # Initialize carry domains
 
